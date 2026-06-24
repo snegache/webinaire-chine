@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Tu es inscrit — Webinaire Chine</title>
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#0a0a0a; color:#fff; min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem 1.25rem; text-align:center; max-width:480px; margin:0 auto; }
+
+  @keyframes checkIn { from{opacity:0;transform:scale(0.5)} to{opacity:1;transform:scale(1)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+  .check-wrap { width:72px; height:72px; border-radius:50%; background:rgba(201,168,76,0.1); border:1.5px solid rgba(201,168,76,0.4); display:flex; align-items:center; justify-content:center; margin:0 auto 2rem; animation:checkIn 0.5s ease both; }
+  .check { font-size:2rem; }
+
+  h1 { font-size:2rem; font-weight:800; letter-spacing:-0.02em; line-height:1.1; margin-bottom:0.8rem; animation:fadeUp 0.5s 0.15s ease both; opacity:0; }
+  h1 em { font-style:normal; color:#c9a84c; }
+
+  .sub { font-size:0.95rem; color:rgba(255,255,255,0.45); line-height:1.75; margin-bottom:2rem; animation:fadeUp 0.5s 0.3s ease both; opacity:0; }
+
+  .info-box { background:rgba(201,168,76,0.06); border:0.5px solid rgba(201,168,76,0.25); border-radius:10px; padding:1.2rem 1rem; margin-bottom:2rem; animation:fadeUp 0.5s 0.45s ease both; opacity:0; }
+  .info-box p { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.7; }
+  .info-box strong { color:#c9a84c; }
+
+  .date-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:0.5px solid rgba(201,168,76,0.3); border-radius:4px; padding:10px 20px; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#c9a84c; margin-bottom:2.5rem; animation:fadeUp 0.5s 0.6s ease both; opacity:0; }
+
+  .spam-note { font-size:11px; color:rgba(255,255,255,0.2); line-height:1.6; animation:fadeUp 0.5s 0.75s ease both; opacity:0; }
+</style>
+</head>
+<body>
+  <div class="check-wrap"><span class="check">✓</span></div>
+
+  <h1>Tu es<br><em>inscrit.</em></h1>
+
+  <p class="sub">Le lien Zoom arrive dans ta boîte mail dans quelques minutes.</p>
+
+  <div class="info-box">
+    <p>Vérifie tes <strong>spams</strong> si tu ne vois rien dans 5 minutes.<br>Le mail vient de l'adresse officielle du webinaire.</p>
+  </div>
+
+  <div class="date-badge">5 juillet 2026 à 20h · Zoom</div>
+
+  <p class="spam-note">À très vite.<br>So</p>
+</body>
+</html>
