@@ -170,9 +170,9 @@
   <div class="form-block fade-up-5">
     <h2>Réserve ta place</h2>
     <p>Lien de connexion par email</p>
-    <form class="form-row" onsubmit="handleSubmit(event,this)">
-      <input class="form-input" type="text" placeholder="Prénom" autocomplete="given-name" required />
-      <input class="form-input" type="email" placeholder="Adresse mail" autocomplete="email" required />
+    <form class="form-row" onsubmit="handleSubmitOmnisend(event,this)">
+      <input class="form-input" id="prenom1" type="text" placeholder="Prénom" autocomplete="given-name" required />
+      <input class="form-input" id="email1" type="email" placeholder="Adresse mail" autocomplete="email" required />
       <button class="submit-btn" type="submit">Je réserve ma place (100% GRATUIT)</button>
       <p class="form-note">Aucun spam · Désinscription en un clic</p>
     </form>
@@ -375,9 +375,9 @@
 <div class="cta-bottom" id="cta-final">
   <h2>C'est gratuit.<br>C'est le 5 juillet à 20h.</h2>
   <p>Places limitées. Le lien arrive par email juste après.</p>
-  <form class="cta-form" onsubmit="handleSubmit(event,this)">
-    <input class="form-input" type="text" placeholder="Prénom" autocomplete="given-name" required />
-    <input class="form-input" type="email" placeholder="Adresse mail" autocomplete="email" required />
+  <form class="cta-form" onsubmit="handleSubmitOmnisend(event,this)">
+    <input class="form-input" id="prenom2" type="text" placeholder="Prénom" autocomplete="given-name" required />
+    <input class="form-input" id="email2" type="email" placeholder="Adresse mail" autocomplete="email" required />
     <button class="submit-btn" type="submit">Je réserve ma place (100% GRATUIT)</button>
     <p class="form-note">Aucun spam · Désinscription en un clic</p>
   </form>
@@ -391,9 +391,40 @@
 </div>
 
 <script>
-function handleSubmit(e, form) {
+async function handleSubmitOmnisend(e, form) {
   e.preventDefault();
-  window.location.href = 'merci.html';
+  const btn = form.querySelector('button');
+  btn.textContent = 'Inscription en cours...';
+  btn.disabled = true;
+
+  const inputs = form.querySelectorAll('input');
+  const prenom = inputs[0].value.trim();
+  const email = inputs[1].value.trim();
+
+  try {
+    const response = await fetch('https://api.omnisend.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-KEY': '68960274e29629b6049e2df9-fBK29fmlrnCUsk0iJfCSsWFRUdsqDtlp28rWd1l6lzfWCffyJG'
+      },
+      body: JSON.stringify({
+        email: email,
+        firstName: prenom,
+        status: 'subscribed',
+        statusDate: new Date().toISOString(),
+        tags: ['webinaire-chine-juillet-2026']
+      })
+    });
+
+    if (response.ok || response.status === 200 || response.status === 201) {
+      window.location.href = 'merci.html';
+    } else {
+      window.location.href = 'merci.html';
+    }
+  } catch(err) {
+    window.location.href = 'merci.html';
+  }
 }
 
 const hero = document.querySelector('.hero');
