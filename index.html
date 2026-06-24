@@ -170,9 +170,11 @@
   <div class="form-block fade-up-5">
     <h2>Réserve ta place</h2>
     <p>Lien de connexion par email</p>
-    <form class="form-row" onsubmit="handleSubmitOmnisend(event,this)">
-      <input class="form-input" id="prenom1" type="text" placeholder="Prénom" autocomplete="given-name" required />
-      <input class="form-input" id="email1" type="email" placeholder="Adresse mail" autocomplete="email" required />
+    <form class="form-row" action="https://formspree.io/f/mnjkjbde" method="POST">
+      <input class="form-input" type="text" name="prénom" placeholder="Prénom" autocomplete="given-name" required />
+      <input class="form-input" type="email" name="email" placeholder="Adresse mail" autocomplete="email" required />
+      <input type="hidden" name="_next" value="https://snsociety.fr/merci.html" />
+      <input type="hidden" name="_subject" value="Nouvelle inscription — Webinaire Chine 5 juillet" />
       <button class="submit-btn" type="submit">Je réserve ma place (100% GRATUIT)</button>
       <p class="form-note">Aucun spam · Désinscription en un clic</p>
     </form>
@@ -375,9 +377,11 @@
 <div class="cta-bottom" id="cta-final">
   <h2>C'est gratuit.<br>C'est le 5 juillet à 20h.</h2>
   <p>Places limitées. Le lien arrive par email juste après.</p>
-  <form class="cta-form" onsubmit="handleSubmitOmnisend(event,this)">
-    <input class="form-input" id="prenom2" type="text" placeholder="Prénom" autocomplete="given-name" required />
-    <input class="form-input" id="email2" type="email" placeholder="Adresse mail" autocomplete="email" required />
+  <form class="cta-form" action="https://formspree.io/f/mnjkjbde" method="POST">
+    <input class="form-input" type="text" name="prénom" placeholder="Prénom" autocomplete="given-name" required />
+    <input class="form-input" type="email" name="email" placeholder="Adresse mail" autocomplete="email" required />
+    <input type="hidden" name="_next" value="https://snsociety.fr/merci.html" />
+    <input type="hidden" name="_subject" value="Nouvelle inscription — Webinaire Chine 5 juillet" />
     <button class="submit-btn" type="submit">Je réserve ma place (100% GRATUIT)</button>
     <p class="form-note">Aucun spam · Désinscription en un clic</p>
   </form>
