@@ -391,23 +391,48 @@
 </div>
 
 <script>
-function submitForm(e, form) {
+async function submitForm(e, form) {
   e.preventDefault();
   const inputs = form.querySelectorAll('input[type="text"], input[type="email"]');
   const prenom = inputs[0].value.trim();
   const email = inputs[1].value.trim();
 
-  // Inject into hidden Omnisend form
-  const omniEmail = document.querySelector('#omnisend-embedded-v2-6a3bfb25fb639b407e61962b input[type="email"]');
-  const omniFirstName = document.querySelector('#omnisend-embedded-v2-6a3bfb25fb639b407e61962b input[name="firstName"]');
-  const omniSubmit = document.querySelector('#omnisend-embedded-v2-6a3bfb25fb639b407e61962b button[type="submit"]');
+  const btn = form.querySelector('.submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Inscription en cours...';
 
-  if (omniEmail) omniEmail.value = email;
-  if (omniFirstName) omniFirstName.value = prenom;
-  if (omniSubmit) omniSubmit.click();
+  try {
+    const response = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': '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'
+      },
+      body: JSON.stringify({
+        email: email,
+        attributes: { FIRSTNAME: prenom },
+        listIds: [3],
+        updateEnabled: true
+      })
+    });
 
-  // Redirect immediately
-  window.location.href = 'merci.html';
+    if (response.ok || response.status === 204) {
+      window.location.href = 'merci.html';
+    } else {
+      const err = await response.json();
+      if (err.code === 'duplicate_parameter') {
+        window.location.href = 'merci.html';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Je réserve ma place (100% GRATUIT)';
+        alert('Une erreur est survenue, réessaie dans quelques secondes.');
+      }
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Je réserve ma place (100% GRATUIT)';
+    alert('Problème de connexion, vérifie ta connexion internet.');
+  }
 }
 
 const hero = document.querySelector('.hero');
@@ -494,12 +519,6 @@ if (mReveal) {
 </script>
 
 
-<!-- Omnisend hidden form tracker -->
-<div style="display:none;" id="omnisend-embedded-v2-6a3bfb25fb639b407e61962b"></div>
-<script>
-window.omnisendForm = window.omnisendForm || [];
-window.omnisendForm.push({formId: "6a3bfb25fb639b407e61962b"});
-</script>
-<script src="https://omnisnippet1.com/inShop/launcher-v2.js"></script>
+
 
 </body>
