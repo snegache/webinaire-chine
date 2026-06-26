@@ -1,46 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Tu es inscrit — Webinaire Chine</title>
-<style>
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#0a0a0a; color:#fff; min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem 1.25rem; text-align:center; max-width:480px; margin:0 auto; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Ta place est réservée - SN Society</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  @keyframes checkIn { from{opacity:0;transform:scale(0.5)} to{opacity:1;transform:scale(1)} }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #141414;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  .check-wrap { width:72px; height:72px; border-radius:50%; background:rgba(201,168,76,0.1); border:1.5px solid rgba(201,168,76,0.4); display:flex; align-items:center; justify-content:center; margin:0 auto 2rem; animation:checkIn 0.5s ease both; }
-  .check { font-size:2rem; }
+    .card {
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
 
-  h1 { font-size:2rem; font-weight:800; letter-spacing:-0.02em; line-height:1.1; margin-bottom:0.8rem; animation:fadeUp 0.5s 0.15s ease both; opacity:0; }
-  h1 em { font-style:normal; color:#c9a84c; }
+    .check {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.12);
+      border: 1.5px solid rgba(201,168,76,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
 
-  .sub { font-size:0.95rem; color:rgba(255,255,255,0.45); line-height:1.75; margin-bottom:2rem; animation:fadeUp 0.5s 0.3s ease both; opacity:0; }
+    .check svg {
+      width: 28px;
+      height: 28px;
+      stroke: #c9a84c;
+      stroke-width: 2.5;
+      fill: none;
+    }
 
-  .info-box { background:rgba(201,168,76,0.06); border:0.5px solid rgba(201,168,76,0.25); border-radius:10px; padding:1.2rem 1rem; margin-bottom:2rem; animation:fadeUp 0.5s 0.45s ease both; opacity:0; }
-  .info-box p { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.7; }
-  .info-box strong { color:#c9a84c; }
+    @keyframes pop {
+      from { transform: scale(0.6); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
 
-  .date-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:0.5px solid rgba(201,168,76,0.3); border-radius:4px; padding:10px 20px; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#c9a84c; margin-bottom:2.5rem; animation:fadeUp 0.5s 0.6s ease both; opacity:0; }
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #c9a84c;
+      background: rgba(201,168,76,0.08);
+      border: 0.5px solid rgba(201,168,76,0.3);
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
 
-  .spam-note { font-size:11px; color:rgba(255,255,255,0.2); line-height:1.6; animation:fadeUp 0.5s 0.75s ease both; opacity:0; }
-</style>
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .msg {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .date-block {
+      margin: 1.75rem auto;
+      padding: 1.1rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .date-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 0.4rem;
+    }
+
+    .date-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .date-value span {
+      color: #c9a84c;
+    }
+
+    a.date-block {
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+
+    a.date-block:active {
+      border-color: rgba(201,168,76,0.5);
+    }
+
+    .date-hint {
+      font-size: 11px;
+      color: #c9a84c;
+      margin-top: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .insta-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .insta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #0a0a0a;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      width: 100%;
+      justify-content: center;
+      transition: opacity 0.15s;
+    }
+
+    .insta-btn:active { opacity: 0.85; }
+
+    .insta-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="check-wrap"><span class="check">✓</span></div>
+  <div class="card">
 
-  <h1>Tu es<br><em>inscrit.</em></h1>
+    <div class="check">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
 
-  <p class="sub">Le lien Zoom arrive dans ta boîte mail dans quelques minutes.</p>
+    <div class="badge">Place confirmée</div>
 
-  <div class="info-box">
-    <p>Vérifie tes <strong>spams</strong> si tu ne vois rien dans 5 minutes.<br>Le mail vient de l'adresse officielle du webinaire.</p>
+    <p class="msg">Tu reçois le lien du webinaire par email le jour J.</p>
+
+    <a class="date-block" href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ADTSTART%3A20260712T180000Z%0ADTEND%3A20260712T190000Z%0ASUMMARY%3AWebinaire%20Business%20Chine%20-%20So%0ADESCRIPTION%3AWebinaire%20gratuit%20avec%20So%20-%20snsociety.fr%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="webinaire-chine.ics">
+      <div class="date-label">Webinaire Business Chine</div>
+      <div class="date-value"><span>12 juillet 2026</span> · 20h00</div>
+      <div class="date-hint">+ Ajouter à mon agenda</div>
+    </a>
+
+    <a class="insta-btn" href="https://instagram.com/snegache" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      @snegache
+    </a>
+
   </div>
-
-  <div class="date-badge">5 juillet 2026 à 20h · Zoom</div>
-
-  <p class="spam-note">À très vite.<br>So</p>
 </body>
 </html>
