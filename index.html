@@ -7,7 +7,7 @@
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: smooth; font-size: 16px; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #fff; line-height: 1.6; max-width: 480px; margin: 0 auto; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #141414; color: #fff; line-height: 1.6; max-width: 480px; margin: 0 auto; }
 
   @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
   @keyframes fadeUp { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
@@ -67,7 +67,7 @@
 
   /* GALERIE */
   .gallery { display:grid; grid-template-columns:1fr 1fr; gap:4px; margin-top:1.4rem; border-radius:14px; overflow:hidden; }
-  .gallery-main { grid-row:span 2; aspect-ratio:3/4; background:#1a1a1a; display:flex; align-items:center; justify-content:center; }
+  .gallery-main { grid-row:span 2; aspect-ratio:3/4; background:#222222; display:flex; align-items:center; justify-content:center; }
   .gallery-sm { aspect-ratio:1/1; background:#161616; display:flex; align-items:center; justify-content:center; }
   .gallery-main img, .gallery-sm img { width:100%; height:100%; object-fit:cover; display:block; }
   .gallery-ph { font-size:10px; color:rgba(255,255,255,0.18); text-align:center; padding:0.5rem; }
@@ -76,7 +76,7 @@
 
   /* STATS */
   .stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.06); border-radius:12px; overflow:hidden; margin-top:1.5rem; }
-  .stat { background:#0a0a0a; padding:1.1rem 0.9rem; text-align:center; }
+  .stat { background:#141414; padding:1.1rem 0.9rem; text-align:center; }
   .stat-num { font-size:1.7rem; font-weight:800; color:#c9a84c; letter-spacing:-0.03em; margin-bottom:3px; }
   .stat-label { font-size:11px; color:rgba(255,255,255,0.32); line-height:1.4; }
 
@@ -89,7 +89,7 @@
   .avatar-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,0.06); border:0.5px solid rgba(255,255,255,0.06); border-radius:12px; overflow:hidden; margin-top:1.5rem; }
   .avatar-col { padding:1.1rem 0.9rem; }
   .avatar-col.yes { background:#0d0d0d; }
-  .avatar-col.no  { background:#0a0a0a; }
+  .avatar-col.no  { background:#141414; }
   .avatar-head { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.9rem; }
   .avatar-head.yes { color:#c9a84c; }
   .avatar-head.no  { color:rgba(255,255,255,0.22); }
@@ -140,7 +140,7 @@
   .carousel-wrap { margin-top:1.4rem; position:relative; overflow:hidden; border-radius:14px; }
   .carousel-track { display:flex; transition:transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94); will-change:transform; }
   .carousel-slide { flex:0 0 100%; position:relative; aspect-ratio:4/5; }
-  .carousel-ph { width:100%; height:100%; background:#1a1a1a; display:flex; align-items:center; justify-content:center; }
+  .carousel-ph { width:100%; height:100%; background:#222222; display:flex; align-items:center; justify-content:center; }
   .carousel-ph img { width:100%; height:100%; object-fit:cover; display:block; }
   .carousel-caption { position:absolute; bottom:0; left:0; right:0; padding:2rem 1rem 1rem; background:linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); font-size:13px; font-weight:600; color:#fff; letter-spacing:0.02em; }
   .carousel-dots { display:flex; justify-content:center; gap:6px; padding:0.9rem 0 0.2rem; }
@@ -152,10 +152,10 @@
 <body>
 <!-- HERO -->
 <section class="hero">
-  <div class="live-badge fade-up"><div class="live-dot"></div>WEBINAIRE GRATUIT · 5 JUILLET 2026</div>
+  <div class="live-badge fade-up"><div class="live-dot"></div>WEBINAIRE GRATUIT · 12 JUILLET 2026</div>
   <h1 class="fade-up-2">Je vais en Chine.<br><em>Viens avec moi.</em></h1>
-  <p class="hero-sub fade-up-3">L'immersion que j'aurais voulu avoir dès le début.</p>
-  <p class="date-line fade-up-3">Le <strong>5 juillet 2026 à 20h</strong> · Places limitées</p>
+  <p class="hero-sub fade-up-3">Regarde la vidéo ci-dessous.</p>
+  <p class="date-line fade-up-3">Le <strong>12 juillet 2026 à 20h</strong> · Places limitées</p>
 
   <div class="video-wrap fade-up-4">
     <div class="video-container">
@@ -373,7 +373,7 @@
 
 <!-- CTA FINAL -->
 <div class="cta-bottom" id="cta-final">
-  <h2>C'est gratuit.<br>C'est le 5 juillet à 20h.</h2>
+  <h2>C'est gratuit.<br>C'est le 12 juillet à 20h.</h2>
   <p>Places limitées. Le lien arrive par email juste après.</p>
   <form class="cta-form" onsubmit="submitForm(event, this)">
     <input class="form-input" id="cta-prenom" type="text" placeholder="Prénom" autocomplete="given-name" required />
@@ -383,7 +383,7 @@
   </form>
 </div>
 
-<footer class="footer">SN Webinaire Business Chine · 5 juillet 2026 · 20h</footer>
+<footer class="footer">SN Webinaire Business Chine · 12 juillet 2026 · 20h</footer>
 
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="sticky">
