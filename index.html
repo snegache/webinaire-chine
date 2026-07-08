@@ -34,6 +34,10 @@
   .date-line { font-size:13px; color:rgba(255,255,255,0.28); margin-bottom:2rem; letter-spacing:0.02em; }
   .date-line strong { color:#c9a84c; font-weight:600; }
 
+  /* VIDEO */
+  .video-wrap { width:100%; max-width:240px; margin:0 auto 2rem; animation:float 4s ease-in-out infinite; }
+  .video-container { width:100%; aspect-ratio:9/16; background:#111; border-radius:14px; border:0.5px solid rgba(255,255,255,0.08); overflow:hidden; display:flex; align-items:center; justify-content:center; position:relative; box-shadow:0 20px 50px rgba(0,0,0,0.6); }
+
   /* FORM */
   .form-block { width:100%; }
   .form-block h2 { font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:0.2rem; }
@@ -146,6 +150,19 @@
   <h1 class="fade-up-2">Je vais en Chine.<br><em>Viens avec moi.</em></h1>
   <p class="hero-sub fade-up-3">Date du voyage : du <strong>19 au 28 septembre 2026</strong>.</p>
   <p class="date-line fade-up-3">Webinaire GRATUIT, le <strong>12 juillet 2026 à 20h</strong> · Places limitées</p>
+
+  <div class="video-wrap fade-up-4">
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/TKOyssXHjTI?rel=0&modestbranding=1&playsinline=1"
+        title="Je vais en Chine, viens avec moi"
+        style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
 
   <div class="form-block fade-up-5">
     <h2>Réserve ta place</h2>
