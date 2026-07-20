@@ -156,10 +156,6 @@
   .reassure { margin-top:1.4rem; font-size:12px; font-style:italic; color:rgba(255,255,255,0.35); }
 
   /* STICKY */
-  .sticky { position:fixed; left:50%; transform:translate(-50%, 110%); width:100%; max-width:480px; bottom:0; padding:0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom)); background:rgba(13,13,13,0.9); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-top:0.5px solid rgba(255,255,255,0.08); transition:transform 0.25s ease; z-index:50; }
-  .sticky.visible { transform:translate(-50%, 0); }
-  .sticky .cta { padding:14px; font-size:15px; box-shadow:none; }
-
   footer { padding:2.2rem 1.25rem 7rem; text-align:center; color:rgba(255,255,255,0.25); font-size:11px; line-height:1.7; }
 </style>
 </head>
@@ -171,8 +167,6 @@
   <h1 class="fade-up-2">Séminaire Business<br><em>Chine 2026.</em></h1>
   <p class="hero-sub fade-up-3">Guangzhou · Foshan · Shenzhen</p>
   <p class="date-line fade-up-3">Du <strong>19 au 28 septembre 2026</strong> · 8 à 10 participants<br>Admission par sélection</p>
-  <a class="cta fade-up-4" href="mailto:travel.ethic@gmail.com?subject=S%C3%A9jour%20Chine%20x%20Snegache&body=Bonjour%2C%0A%0AJe%20souhaite%20m%27inscrire%20au%20s%C3%A9minaire%20business%20en%20Chine%20du%2019%20au%2028%20septembre%202026.%0A%0ANom%20%3A%0APr%C3%A9nom%20%3A%0ANum%C3%A9ro%20de%20t%C3%A9l%C3%A9phone%20%3A%0ADate%20de%20naissance%20%3A%0AVille%20de%20d%C3%A9part%20%3A%0AMon%20projet%20%3A%0APourquoi%20moi%20%3F%20%3A%0A">Je veux participer</a>
-  <span class="cta-sub">Un mail pré-rempli s'ouvre, il ne reste qu'à compléter.</span>
 </header>
 
 <!-- LE CONCEPT -->
@@ -417,11 +411,6 @@
   Snegache x Travel Ethic · Séminaire Business Chine 2026 · 19-28 septembre · snsociety.fr
 </footer>
 
-<!-- STICKY CTA -->
-<div class="sticky" id="sticky">
-  <a class="cta" href="mailto:travel.ethic@gmail.com?subject=S%C3%A9jour%20Chine%20x%20Snegache&body=Bonjour%2C%0A%0AJe%20souhaite%20m%27inscrire%20au%20s%C3%A9minaire%20business%20en%20Chine%20du%2019%20au%2028%20septembre%202026.%0A%0ANom%20%3A%0APr%C3%A9nom%20%3A%0ANum%C3%A9ro%20de%20t%C3%A9l%C3%A9phone%20%3A%0ADate%20de%20naissance%20%3A%0AVille%20de%20d%C3%A9part%20%3A%0AMon%20projet%20%3A%0APourquoi%20moi%20%3F%20%3A%0A">Je veux participer</a>
-</div>
-
 <script>
 
   (function() {
@@ -456,15 +445,6 @@
 
   startAuto();
   })();
-
-  const hero = document.querySelector('.hero');
-  const sticky = document.getElementById('sticky');
-  const apply = document.getElementById('candidature');
-  window.addEventListener('scroll', () => {
-    const heroGone = hero.getBoundingClientRect().bottom < 0;
-    const applyVisible = apply.getBoundingClientRect().top < window.innerHeight;
-    sticky.classList.toggle('visible', heroGone && !applyVisible);
-  }, { passive: true });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
